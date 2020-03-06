@@ -54,6 +54,12 @@ class Main extends PluginBase {
 	}
 
 	public function onEnable() {
+		if(!file_exists($this->getServer()->getDataPath() . "/dim"."/ender"."/region")){
+			mkdir($this->getServer()->getDataPath() . "/dim"."/ender"."/region", 0777);
+		}
+		if(!file_exists($path . "/dim"."nether"."/region")){
+			mkdir($path . "/dim"."nether"."/region", 0777);
+		}
 		new DimensionListener($this);
 		if(GeneratorManager::getGenerator("ender") !== Normal::class) {
 			BlockFactory::registerBlock(new EndPortalFrame(), true);
