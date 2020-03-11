@@ -87,9 +87,9 @@ class DimensionListener implements Listener {
 		}
 		$pk->position = $event->getTo();
 		$pk->respawn = false;
-		//$player->sendDataPacket($pk);
+		$player->sendDataPacket($pk);
 
-		//$player->sendPlayStatus(PlayStatusPacket::PLAYER_SPAWN);
+		$player->sendPlayStatus(PlayStatusPacket::PLAYER_SPAWN);
 
 		$this->plugin->getScheduler()->scheduleDelayedTask(new ClosureTask(function(int $currentTick) use($player) : void {
 			Main::removeTeleportingId($player->getId());
